@@ -28,20 +28,26 @@ function App() {
     </div>
     <p className="title">언베일드 공식 프린터</p>
     <p className="description">(이 프린터는 무료로 해줍니다 🤑)</p>
-    <textarea
-     className="text-input"
-     datatype="text"
-     value={text}
-     onChange={(e) => {
-      setText(e.target.value)
-     }}
-     onKeyDown={() => {
-      if (window.event.keyCode === 13) {
-       print()
-      }
-     }}
-    ></textarea>
-    <p></p>
+    <div className="text-print-section">
+     <div className="text-subtitle">텍스트 출력</div>
+     <input
+      className="text-input"
+      datatype="text"
+      value={text}
+      onChange={(e) => {
+       setText(e.target.value)
+      }}
+      onKeyDown={() => {
+       if (window.event.keyCode === 13) {
+        print()
+       }
+      }}
+      placeholder="please speak english please~"
+     ></input>
+    </div>
+    {/* <div className="image-print-section">
+     <div className="image-subtitle">이미지 출력</div>
+    </div> */}
    </PageStyle>
   </div>
  )
@@ -76,7 +82,7 @@ const PageStyle = styled.div`
  }
  .text-input {
   margin: 0.5rem;
-  height: 20rem;
+  /* height: 20rem; */
   width: 20rem;
   resize: none;
   outline: none;
@@ -93,6 +99,16 @@ const PageStyle = styled.div`
  }
  :-ms-input-placeholder {
   text-align: center;
+ }
+ .text-print-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ .text-subtitle {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
  }
 `
 
